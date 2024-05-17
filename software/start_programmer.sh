@@ -1,0 +1,1 @@
+sudo /home/sirlilpanda/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/jre/bin/java -Djdk.gtk.version=2 -jar /home/sirlilpanda/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32CubeProgrammerLauncher

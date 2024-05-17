@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "cstdio": "cpp",
+        "stdlib.h": "c"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-gcc"
+}
