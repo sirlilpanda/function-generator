@@ -2244,6 +2244,84 @@
 		)
 	)
 	(symbol
+		(lib_id "ENEL300:SW_SP4T")
+		(at 45.72 171.45 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0ce85a21-9261-4666-8ffd-eccbb605188b")
+		(property "Reference" "SW3"
+			(at 45.72 161.925 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_SP4T"
+			(at 45.72 164.465 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "switch:SLB1470"
+			(at 61.595 167.005 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 61.595 167.005 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 45.72 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "471ccd5c-9f7e-4c80-9721-8e90bb97e0de")
+		)
+		(pin "2"
+			(uuid "8a985e73-a866-49d6-aabb-1f8e7ca84010")
+		)
+		(pin "3"
+			(uuid "b8365413-9eea-4929-b095-a66a19fb6168")
+		)
+		(pin "4"
+			(uuid "3222b7f1-3f29-446b-abdf-3106d4b2ecd3")
+		)
+		(pin "5"
+			(uuid "50629fbd-4f6a-4144-937c-a36341a1361e")
+		)
+		(instances
+			(project "function_gen"
+				(path "/612821d8-1ef1-4cb8-a651-a5a0edc165c6/326ccc32-4b69-4f38-8bf0-8e33e04b6737"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 88.9 177.8 0)
 		(mirror y)
@@ -2321,100 +2399,6 @@
 			(project "function_generator"
 				(path "/cd0da7d0-5be6-4c3c-bca1-321a03257164/28e6ecdd-db5e-403c-9844-037dc2848649"
 					(reference "#PWR046")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "ENEL300:SW_SP4T")
-		(at 45.72 82.55 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "12796b32-a012-443f-a759-60eccfc37199")
-		(property "Reference" "SW4"
-			(at 45.72 73.025 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_SP4T"
-			(at 45.72 75.565 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "switch:SLB1470"
-			(at 61.595 78.105 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 61.595 78.105 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 45.72 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "106402a9-347a-4b66-a5c7-20ec730c5b8d")
-		)
-		(pin "2"
-			(uuid "3253acc7-52bd-461b-b97b-a17e7c74e7f4")
-		)
-		(pin "3"
-			(uuid "d3df4f46-fce5-4af9-a284-f300dc0e8f63")
-		)
-		(pin "4"
-			(uuid "ab2170d4-2301-41ed-9d11-f32649a1191f")
-		)
-		(pin "5"
-			(uuid "ef2e911f-5629-4401-a40f-55093f600951")
-		)
-		(instances
-			(project "function_gen"
-				(path "/612821d8-1ef1-4cb8-a651-a5a0edc165c6/326ccc32-4b69-4f38-8bf0-8e33e04b6737"
-					(reference "SW4")
-					(unit 1)
-				)
-			)
-			(project "ENEL300Group16"
-				(path "/97e53a6b-0ed5-4440-b325-ee853eede691/a52cb96c-0349-4dad-a4b0-792161c25e00/33a17832-3244-4d1b-a395-8bb93294d06f"
-					(reference "SW5")
-					(unit 1)
-				)
-				(path "/97e53a6b-0ed5-4440-b325-ee853eede691/a52cb96c-0349-4dad-a4b0-792161c25e00/d0853792-e939-4e9a-8dc6-f885e7250586"
-					(reference "SW10")
-					(unit 1)
-				)
-			)
-			(project "function_generator"
-				(path "/cd0da7d0-5be6-4c3c-bca1-321a03257164/28e6ecdd-db5e-403c-9844-037dc2848649"
-					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -2672,100 +2656,6 @@
 			(project "function_generator"
 				(path "/cd0da7d0-5be6-4c3c-bca1-321a03257164/28e6ecdd-db5e-403c-9844-037dc2848649"
 					(reference "SW6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "ENEL300:SW_SP4T")
-		(at 45.72 171.45 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2df2473f-7ac1-4efa-a0a3-e8e284d47fdf")
-		(property "Reference" "SW6"
-			(at 45.72 161.925 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_SP4T"
-			(at 45.72 164.465 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "switch:SLB1470"
-			(at 61.595 167.005 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 61.595 167.005 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 45.72 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a8a3caee-865d-4edd-a8de-e127d2297b07")
-		)
-		(pin "2"
-			(uuid "f0a27e9d-86de-46d5-aa06-c4df6f5ee26b")
-		)
-		(pin "3"
-			(uuid "26acf1f0-ddd4-403f-8595-2eb711daf658")
-		)
-		(pin "4"
-			(uuid "d5d3d297-eaea-433f-b099-2b793ae53b5d")
-		)
-		(pin "5"
-			(uuid "e4d7031e-dac0-4e7d-947a-0d806f2d36d1")
-		)
-		(instances
-			(project "function_gen"
-				(path "/612821d8-1ef1-4cb8-a651-a5a0edc165c6/326ccc32-4b69-4f38-8bf0-8e33e04b6737"
-					(reference "SW6")
-					(unit 1)
-				)
-			)
-			(project "ENEL300Group16"
-				(path "/97e53a6b-0ed5-4440-b325-ee853eede691/a52cb96c-0349-4dad-a4b0-792161c25e00/33a17832-3244-4d1b-a395-8bb93294d06f"
-					(reference "SW7")
-					(unit 1)
-				)
-				(path "/97e53a6b-0ed5-4440-b325-ee853eede691/a52cb96c-0349-4dad-a4b0-792161c25e00/d0853792-e939-4e9a-8dc6-f885e7250586"
-					(reference "SW12")
-					(unit 1)
-				)
-			)
-			(project "function_generator"
-				(path "/cd0da7d0-5be6-4c3c-bca1-321a03257164/28e6ecdd-db5e-403c-9844-037dc2848649"
-					(reference "SW4")
 					(unit 1)
 				)
 			)
@@ -4116,7 +4006,7 @@
 	)
 	(symbol
 		(lib_id "ENEL300:SW_SP4T")
-		(at 45.72 38.1 0)
+		(at 45.72 82.55 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4124,17 +4014,17 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "99136ce1-8cda-4947-b041-17e5e491e370")
-		(property "Reference" "SW3"
-			(at 45.72 28.575 0)
+		(uuid "943889dd-2c14-4c19-a5c0-e8b68c5cec50")
+		(property "Reference" "SW4"
+			(at 45.72 73.025 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "switch:SLB1470"
-			(at 45.72 31.115 0)
+		(property "Value" "SW_SP4T"
+			(at 45.72 75.565 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4142,7 +4032,7 @@
 			)
 		)
 		(property "Footprint" "switch:SLB1470"
-			(at 61.595 33.655 0)
+			(at 61.595 78.105 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4151,7 +4041,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 61.595 33.655 0)
+			(at 61.595 78.105 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4160,7 +4050,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 45.72 38.1 0)
+			(at 45.72 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4169,40 +4059,24 @@
 			)
 		)
 		(pin "1"
-			(uuid "d6b062a0-0e96-4712-ab6c-d17f6b02100d")
+			(uuid "12755720-d21f-4454-b0bd-55b989e54422")
 		)
 		(pin "2"
-			(uuid "8fb17ae6-a6c3-4701-811a-cbc961020547")
+			(uuid "0250c4f0-353e-4b03-9a4e-bed42ff16e29")
 		)
 		(pin "3"
-			(uuid "3c985e17-3452-4f18-b52b-161e3bc4ab49")
+			(uuid "90717a53-5c9a-4119-b666-2d23d3cda6a9")
 		)
 		(pin "4"
-			(uuid "0110421d-0580-47d3-af70-42ba3952cff7")
+			(uuid "9c1bccd6-c355-462a-8909-f7e214486052")
 		)
 		(pin "5"
-			(uuid "7f24daf9-d7df-4c1f-826a-fde2f3bf1a85")
+			(uuid "e6544ea7-faeb-4773-a00b-330b6b7df8b9")
 		)
 		(instances
 			(project "function_gen"
 				(path "/612821d8-1ef1-4cb8-a651-a5a0edc165c6/326ccc32-4b69-4f38-8bf0-8e33e04b6737"
-					(reference "SW3")
-					(unit 1)
-				)
-			)
-			(project "ENEL300Group16"
-				(path "/97e53a6b-0ed5-4440-b325-ee853eede691/a52cb96c-0349-4dad-a4b0-792161c25e00/33a17832-3244-4d1b-a395-8bb93294d06f"
-					(reference "SW3")
-					(unit 1)
-				)
-				(path "/97e53a6b-0ed5-4440-b325-ee853eede691/a52cb96c-0349-4dad-a4b0-792161c25e00/d0853792-e939-4e9a-8dc6-f885e7250586"
-					(reference "SW9")
-					(unit 1)
-				)
-			)
-			(project "function_generator"
-				(path "/cd0da7d0-5be6-4c3c-bca1-321a03257164/28e6ecdd-db5e-403c-9844-037dc2848649"
-					(reference "SW1")
+					(reference "SW4")
 					(unit 1)
 				)
 			)
@@ -4451,6 +4325,84 @@
 			(project "function_generator"
 				(path "/cd0da7d0-5be6-4c3c-bca1-321a03257164/28e6ecdd-db5e-403c-9844-037dc2848649"
 					(reference "#PWR032")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ENEL300:SW_SP4T")
+		(at 45.72 38.1 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cfae25bf-f11f-4cad-b975-60737bce0020")
+		(property "Reference" "SW6"
+			(at 45.72 28.575 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_SP4T"
+			(at 45.72 31.115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "switch:SLB1470"
+			(at 61.595 33.655 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 61.595 33.655 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 45.72 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f7248ee7-1814-4c5f-87af-c96f2f887d51")
+		)
+		(pin "2"
+			(uuid "0c0b7847-6d34-41f8-bfba-0e0c75a09e85")
+		)
+		(pin "3"
+			(uuid "17a57ed3-2111-483e-ae40-9b4458386077")
+		)
+		(pin "4"
+			(uuid "0ff64a15-77b4-4921-946c-44780e357d7e")
+		)
+		(pin "5"
+			(uuid "f03cddd9-8353-49cc-aac8-1fcd0a6b92bd")
+		)
+		(instances
+			(project "function_gen"
+				(path "/612821d8-1ef1-4cb8-a651-a5a0edc165c6/326ccc32-4b69-4f38-8bf0-8e33e04b6737"
+					(reference "SW6")
 					(unit 1)
 				)
 			)
