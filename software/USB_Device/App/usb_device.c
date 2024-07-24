@@ -25,20 +25,59 @@
 #include "usbd_desc.h"
 #include "usbd_cdc.h"
 #include "usbd_cdc_if.h"
-#include <stdarg.h>
-#include <stdio.h>
+#include "stdio.h"
+#include "stdarg.h"
+
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* USER CODE BEGIN PV */
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE END PV */
+
+/* USER CODE BEGIN PFP */
+/* Private function prototypes -----------------------------------------------*/
+
+/* USER CODE END PFP */
 
 extern void Error_Handler(void);
 /* USB Device Core handle declaration. */
 USBD_HandleTypeDef hUsbDeviceFS;
 extern USBD_DescriptorsTypeDef CDC_Desc;
 
+/*
+ * -- Insert your variables declaration here --
+ */
+/* USER CODE BEGIN 0 */
+static uint8_t __PRINT_BUFFER[256];
+/* USER CODE END 0 */
+
+/*
+ * -- Insert your external function declaration here --
+ */
+/* USER CODE BEGIN 1 */
+void USB_Print(const char* __restrict__ __format, ...){
+  va_list args;
+  va_start (args, __format);
+    int written = vsnprintf((char*)__PRINT_BUFFER, 256, __format, args);
+  va_end (args);
+  CDC_Transmit_FS(__PRINT_BUFFER, written);
+}
+/* USER CODE END 1 */
 
 /**
   * Init USB device Library, add supported class and start the library
   * @retval None
   */
-void MX_USB_Device_Init(void) {
+void MX_USB_Device_Init(void)
+{
+  /* USER CODE BEGIN USB_Device_Init_PreTreatment */
+
+  /* USER CODE END USB_Device_Init_PreTreatment */
+
+  /* Init Device Library, add supported class and start the library. */
   if (USBD_Init(&hUsbDeviceFS, &CDC_Desc, DEVICE_FS) != USBD_OK) {
     Error_Handler();
   }
@@ -51,13 +90,16 @@ void MX_USB_Device_Init(void) {
   if (USBD_Start(&hUsbDeviceFS) != USBD_OK) {
     Error_Handler();
   }
+  /* USER CODE BEGIN USB_Device_Init_PostTreatment */
+
+  /* USER CODE END USB_Device_Init_PostTreatment */
 }
 
-static uint8_t PRINT_BUFFER[256];
-void USB_Print(const char* __restrict__ __format, ...){
-  va_list args;
-  va_start (args, __format);
-    int written = vsnprintf((char*)PRINT_BUFFER, 256, __format, args);
-  va_end (args);
-  CDC_Transmit_FS(PRINT_BUFFER, written);
-}
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+

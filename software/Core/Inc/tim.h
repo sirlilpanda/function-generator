@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    adc.h
+  * @file    tim.h
   * @brief   This file contains all the function prototypes for
-  *          the adc.c file
+  *          the tim.c file
   ******************************************************************************
   * @attention
   *
@@ -18,8 +18,8 @@
   */
 /* USER CODE END Header */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __ADC_H__
-#define __ADC_H__
+#ifndef __TIM_H__
+#define __TIM_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,30 +32,30 @@ extern "C" {
 
 /* USER CODE END Includes */
 
-extern ADC_HandleTypeDef hadc1;
+extern TIM_HandleTypeDef htim1;
 
-extern ADC_HandleTypeDef hadc2;
+extern TIM_HandleTypeDef htim2;
+
+extern TIM_HandleTypeDef htim3;
+
+extern TIM_HandleTypeDef htim4;
 
 /* USER CODE BEGIN Private defines */
-typedef struct adc_s
-{
-  ADC_ChannelConfTypeDef config;
-  ADC_HandleTypeDef* hadc;
-  uint32_t last_value;
-} adc_t;
+
 /* USER CODE END Private defines */
 
-void MX_ADC1_Init(void);
-void MX_ADC2_Init(void);
+void MX_TIM1_Init(void);
+void MX_TIM2_Init(void);
+void MX_TIM3_Init(void);
+void MX_TIM4_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-void ADC_Select(uint32_t channel, ADC_HandleTypeDef hadc);
-uint16_t ADC_Get_val(adc_t* adc);
+
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __ADC_H__ */
+#endif /* __TIM_H__ */
 

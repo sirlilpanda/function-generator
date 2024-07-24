@@ -8,8 +8,8 @@
   *          is using in the C source code, usually in main.c. This file contains:
   *           - Configuration section that allows to select:
   *              - The STM32G4xx device used in the target application
-  *              - To use or not the peripheral’s drivers in application code(i.e.
-  *                code will be based on direct access to peripheral’s registers
+  *              - To use or not the peripheralï¿½s drivers in application code(i.e.
+  *                code will be based on direct access to peripheralï¿½s registers
   *                rather than drivers API), this option is controlled by
   *                "#define USE_HAL_DRIVER"
   *
@@ -58,7 +58,9 @@
 
 #if !defined (STM32G431xx) && !defined (STM32G441xx) && !defined (STM32G471xx) && \
     !defined (STM32G473xx) && !defined (STM32G474xx) && !defined (STM32G484xx) && \
-    !defined (STM32GBK1CB) && !defined (STM32G491xx) && !defined (STM32G4A1xx)
+    !defined (STM32GBK1CB) && !defined (STM32G491xx) && !defined (STM32G4A1xx) && \
+    !defined (STM32G414xx)
+  /* #define STM32G414xx */   /*!< STM32G414xx Devices */
   /* #define STM32G431xx */   /*!< STM32G431xx Devices */
   /* #define STM32G441xx */   /*!< STM32G441xx Devices */
   /* #define STM32G471xx */   /*!< STM32G471xx Devices */
@@ -84,11 +86,11 @@
 #endif /* USE_HAL_DRIVER */
 
 /**
-  * @brief CMSIS Device version number V1.2.3
+  * @brief CMSIS Device version number V1.2.4
   */
 #define __STM32G4_CMSIS_VERSION_MAIN   (0x01U) /*!< [31:24] main version */
 #define __STM32G4_CMSIS_VERSION_SUB1   (0x02U) /*!< [23:16] sub1 version */
-#define __STM32G4_CMSIS_VERSION_SUB2   (0x03U) /*!< [15:8]  sub2 version */
+#define __STM32G4_CMSIS_VERSION_SUB2   (0x04U) /*!< [15:8]  sub2 version */
 #define __STM32G4_CMSIS_VERSION_RC     (0x00U) /*!< [7:0]  release candidate */
 #define __STM32G4_CMSIS_VERSION        ((__STM32G4_CMSIS_VERSION_MAIN << 24)\
                                        |(__STM32G4_CMSIS_VERSION_SUB1 << 16)\
@@ -103,29 +105,31 @@
   * @{
   */
 
-#if defined(STM32G431xx)
-  #include "stm32g431xx.h"
-#elif defined(STM32G441xx)
-  #include "stm32g441xx.h"
-#elif defined(STM32G471xx)
-  #include "stm32g471xx.h"
-#elif defined(STM32G473xx)
-  #include "stm32g473xx.h"
-#elif defined(STM32G483xx)
-  #include "stm32g483xx.h"
-#elif defined(STM32G474xx)
-  #include "stm32g474xx.h"
-#elif defined(STM32G484xx)
-  #include "stm32g484xx.h"
-#elif defined(STM32G491xx)
-  #include "stm32g491xx.h"
-#elif defined(STM32G4A1xx)
-  #include "stm32g4a1xx.h"
-#elif defined(STM32GBK1CB)
-  #include "stm32gbk1cb.h"
-#else
-  #error "Please select first the target STM32G4xx device used in your application (in stm32g4xx.h file)"
-#endif
+// #if defined(STM32G431xx)
+#include "stm32g431xx.h"
+// #elif defined(STM32G441xx)
+//   #include "stm32g441xx.h"
+// #elif defined(STM32G471xx)
+//   #include "stm32g471xx.h"
+// #elif defined(STM32G473xx)
+//   #include "stm32g473xx.h"
+// #elif defined(STM32G483xx)
+//   #include "stm32g483xx.h"
+// #elif defined(STM32G474xx)
+//   #include "stm32g474xx.h"
+// #elif defined(STM32G484xx)
+//   #include "stm32g484xx.h"
+// #elif defined(STM32G491xx)
+//   #include "stm32g491xx.h"
+// #elif defined(STM32G4A1xx)
+//   #include "stm32g4a1xx.h"
+// #elif defined(STM32GBK1CB)
+//   #include "stm32gbk1cb.h"
+// #elif defined(STM32G414xx)
+//   #include "stm32g414xx.h"
+// #else
+//   #error "Please select first the target STM32G4xx device used in your application (in stm32g4xx.h file)"
+// #endif
 
 /**
   * @}

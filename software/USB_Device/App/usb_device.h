@@ -77,10 +77,23 @@
 /** USB Device initialization function. */
 void MX_USB_Device_Init(void);
 
-/// @brief print the string over the usb
-/// @param __format 
-/// @param  
-void USB_Print(const char* __restrict__ __format, ...);
+/*
+ * -- Insert functions declaration here --
+ */
+/* USER CODE BEGIN FD */
+void USB_print(const char* __restrict__ __format, ...);
+/* USER CODE END FD */
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
 
 #ifdef __cplusplus
 }

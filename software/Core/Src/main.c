@@ -20,15 +20,78 @@
 #include "main.h"
 #include "adc.h"
 #include "dac.h"
+#include "dma.h"
+#include "fmac.h"
 #include "i2s.h"
 #include "opamp.h"
+#include "tim.h"
 #include "ucpd.h"
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include <stdint.h>
 
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+typedef enum{
+	SINE,
+	TRIANGLE,
+	SAW,
+	SQUARE
+}waveState;
+
+char waves[][4] = {
+  "sin",
+  "tri",
+  "saw",
+  "sqr"
+};
+
+typedef struct Output_s{
+	waveState state;
+	uint16_t dacValue;
+	uint8_t changeState;
+	uint16_t freq;
+	uint32_t Channel;
+	TIM_HandleTypeDef *htim;
+}Output_t;
+
+Output_t outWaveA;
+Output_t outWaveB;
+Output_t outWaveC;
+Output_t outWaveD;
+/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -37,21 +100,27 @@ void SystemClock_Config(void);
 int main(void)
 {
 
-  HAL_Init();
-  SystemClock_Config();
-  MX_GPIO_Init();
-  MX_ADC1_Init();
-  MX_ADC2_Init();
-  MX_DAC1_Init();
-  MX_DAC3_Init();
-  MX_I2S3_Init();
-  MX_OPAMP1_Init();
-  MX_OPAMP3_Init();
-  MX_UCPD1_Init();
-  MX_USART3_Init();
-  MX_USB_Device_Init();
+  /* USER CODE BEGIN 1 */
 
-  adc_t channel_1_freq = {
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+  outWaveA.Channel = DAC_CHANNEL_1;
+  outWaveC.Channel = DAC_CHANNEL_2;
+  outWaveA.htim = &htim3;
+  outWaveC.htim = &htim4;
+
+  outWaveD.Channel = DAC_CHANNEL_1;
+  outWaveB.Channel = DAC_CHANNEL_2;
+  outWaveD.htim = &htim3;
+  outWaveB.htim = &htim4;
+
+adc_t channel_1_freq = {
     .config = {
       .Channel = ADC_CHANNEL_3,
       .Rank = ADC_REGULAR_RANK_1,
@@ -140,13 +209,42 @@ int main(void)
     .hadc = &hadc1
   };
 
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_ADC1_Init();
+  MX_ADC2_Init();
+  MX_DAC1_Init();
+  MX_DAC3_Init();
+  MX_I2S3_Init();
+  MX_OPAMP1_Init();
+  MX_OPAMP3_Init();
+  MX_UCPD1_Init();
+  MX_USART3_Init();
+  MX_USB_Device_Init();
+  MX_FMAC_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
-    // Get ADC value
     ADC_Get_val(&channel_1_freq);
     ADC_Get_val(&channel_2_freq);
     ADC_Get_val(&channel_3_freq);
@@ -156,15 +254,15 @@ int main(void)
     ADC_Get_val(&channel_3_waveform);
     ADC_Get_val(&channel_4_waveform);
     USB_Print(
-      "1_freq : %.4d | 2_freq : %.4d | 3_freq : %.4d | 4_freq : %.4d || 1_wave : %.4d | 2_wave : %.4d | 3_wave : %.4d | 4_wave : %.4d\n\r", 
+      "1_freq : %.4d | 2_freq : %.4d | 3_freq : %.4d | 4_freq : %.4d || wave_1 : %s | wave_2 : %s | wave_3 : %s | wave_4 : %s\n\r", 
       channel_1_freq.last_value,
       channel_2_freq.last_value,
       channel_3_freq.last_value,
       channel_4_freq.last_value,
-      channel_1_waveform.last_value,
-      channel_2_waveform.last_value,
-      channel_3_waveform.last_value,
-      channel_4_waveform.last_value
+      waves[channel_1_waveform.last_value/1024],
+      waves[channel_2_waveform.last_value/1024],
+      waves[channel_3_waveform.last_value/1024],
+      waves[channel_4_waveform.last_value/1024]
       );
 
     HAL_Delay(100);
@@ -172,9 +270,6 @@ int main(void)
   }
   /* USER CODE END 3 */
 }
-
-
-
 
 /**
   * @brief System Clock Configuration

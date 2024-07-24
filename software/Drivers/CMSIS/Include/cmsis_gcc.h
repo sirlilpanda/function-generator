@@ -121,6 +121,7 @@
 
 #ifndef __PROGRAM_START
 
+// ignore
 /**
   \brief   Initializes data and bss sections
   \details This default implementations initialized all data and additional bss
