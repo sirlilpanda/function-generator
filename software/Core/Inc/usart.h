@@ -41,7 +41,7 @@ extern USART_HandleTypeDef husart3;
 void MX_USART3_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+HAL_StatusTypeDef HAL_USART_Transmit(USART_HandleTypeDef *husart, const uint8_t *pTxData, uint16_t Size, uint32_t Timeout);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

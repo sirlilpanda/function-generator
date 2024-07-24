@@ -29,6 +29,9 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/times.h>
+#include "usb_device.h"
+#include "usart.h"
+#include "main.h"
 
 
 /* Variables */
@@ -77,14 +80,30 @@ __attribute__((weak)) int _read(int file, char *ptr, int len)
   return len;
 }
 
+USART_HandleTypeDef *uart_handle;
+
 __attribute__((weak)) int _write(int file, char *ptr, int len)
 {
   (void)file;
   int DataIdx;
 
-  for (DataIdx = 0; DataIdx < len; DataIdx++)
-  {
-    __io_putchar(*ptr++);
+  switch (file){
+  case USB_IO:  {
+    if (CDC_Transmit_FS((uint8_t*)ptr, len) == USBD_OK) return len;
+  } break;
+  case USART_IO:  {
+    HAL_USART_Transmit(uart_handle, ptr, len, 100);
+  } break;
+  case SWD_IO:  {
+    for (DataIdx = 0; DataIdx < len; DataIdx++)       
+      ITM_SendChar(*ptr++); 
+  } break;
+
+  default:
+    for (DataIdx = 0; DataIdx < len; DataIdx++)
+    {
+      __io_putchar(*ptr++);
+    }
   }
   return len;
 }

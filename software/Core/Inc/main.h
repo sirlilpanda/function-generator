@@ -43,7 +43,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#define USB_IO 1
+#define USART_IO 2
+#define SWD_IO 3
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

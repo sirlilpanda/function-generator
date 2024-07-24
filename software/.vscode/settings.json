@@ -3,7 +3,9 @@
         "cmsis_gcc.h": "c",
         "cmsis_compiler.h": "c",
         "usb_device.h": "c",
-        "usbd_def.h": "c"
+        "usbd_def.h": "c",
+        "ucpd.h": "c",
+        "usart.h": "c"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-gcc"
 }

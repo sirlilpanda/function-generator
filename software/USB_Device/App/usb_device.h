@@ -82,6 +82,7 @@ void MX_USB_Device_Init(void);
  */
 /* USER CODE BEGIN FD */
 void USB_print(const char* __restrict__ __format, ...);
+uint8_t CDC_Transmit_FS(uint8_t *Buf, uint16_t Len);
 /* USER CODE END FD */
 /**
   * @}

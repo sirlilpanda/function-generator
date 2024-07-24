@@ -245,6 +245,7 @@ adc_t channel_1_freq = {
   while (1)
   {
     /* USER CODE END WHILE */
+
     ADC_Get_val(&channel_1_freq);
     ADC_Get_val(&channel_2_freq);
     ADC_Get_val(&channel_3_freq);
@@ -253,7 +254,9 @@ adc_t channel_1_freq = {
     ADC_Get_val(&channel_2_waveform);
     ADC_Get_val(&channel_3_waveform);
     ADC_Get_val(&channel_4_waveform);
-    USB_Print(
+
+
+    dprintf(1,
       "1_freq : %.4d | 2_freq : %.4d | 3_freq : %.4d | 4_freq : %.4d || wave_1 : %s | wave_2 : %s | wave_3 : %s | wave_4 : %s\n\r", 
       channel_1_freq.last_value,
       channel_2_freq.last_value,
