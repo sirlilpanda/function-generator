@@ -1,0 +1,73 @@
+{{! hash schema  }}
+{{! {
+    "date" : "the date of creation",
+    "time" : "the time of creation",
+    "total_warns" : "number",
+    "total_errors" : "number",
+    "has_violations" : "flag to say if the project has a violation",
+    "sheets" : [
+        {
+            "name" : "string",
+            "name_md" : "just name but i replaced the spaces with hyphens",
+            "number_of_errors" : "number",
+            "number_of_warns" : "number",
+            "warns" : [
+                {
+                    "name" : "string",
+                    "content" : "string"
+                }
+            ],
+            "errors" : [
+                {
+                    "name" : "string",
+                    "content" : "string"
+                }
+            ]
+        }    
+    ]
+} }}
+# ⚡{{project_name}} ERC report ⚡
+
+report created at {{time}} 🕧 on {{date}} 🗓️.
+
+the electronic rules check found:
+- {{total_errors}} errors in your design 😱
+- {{total_warns}} warns in your design 🫨
+
+{{#has_violations}}
+
+
+number of errors and warns breakdown per sheet:
+| sheet name 📄| number of errors 🔴 | number of warns 🟠 |
+| ---------- | ---------------- | --------------- | 
+{{#sheets}}
+| [{{name}}](#{{name_md}}) | {{number_of_errors}} | {{number_of_warns}} | 
+{{/sheets}}
+| total |  {{total_errors}}| {{total_warns}}|
+
+below is a more in-depth breakdown of the errors and warn per sheets.
+note you should only use this for quickly checking that the project
+you uploaded has no error or warn. YOU SHOULD *NOT* use this to actually
+run your ERC in kicad so you can see where is erroring.
+
+{{#sheets}}
+
+# {{name}}
+## errors : {{number_of_errors}}
+{{#errors}}
+### {{name}}
+{{content}}
+{{/errors}}
+
+## warns : {{number_of_warns}} 
+{{#warns}}
+### {{name}}
+{{content}}
+{{/warns}}
+
+{{/sheets}}
+
+{{/has_violations}}
+{{^has_violations}}
+the design had no errors or warns, good job. ✅✅
+{{/has_violations}}

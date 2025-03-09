@@ -1,0 +1,45 @@
+needs_setup: false
+
+# this is set to the name of your repo during setup, you can change it later on using the rename tool
+project_name: function-generator
+
+# this is a list of the production formats that you would like
+# honestly only use gerbers, i doubt i will add anything else
+# but if you want something custom, implement it and throw in
+# a pull request
+#not support
+production_format: gerber
+
+schematic_output_path: docs/
+
+bom_csv_output_path: docs/BOM/
+
+bom_report_output_path: docs/BOM/
+
+production_file_output_path: pcbs/
+
+# all names will follow the pattern [project_name]name.* 
+# these settings just define that name suffix
+# the underscore here are purely for readablity of the
+# output files so the schematic output file name will be
+# project_name_schematic.pdf
+schematic_output_name: _schematic
+
+bom_csv_output_name: _bill_of_materials
+
+bom_report_output_name: _bom_report
+
+production_file_output_name: _gerber
+
+# these templates use mustache (https://mustache.github.io/mustache.5.html)
+# a logic less templating langauge for templating just about anything
+bom_template_path: .github/report_templates/bom_report_template.mustache
+
+erc_report_template_path: .github/report_templates/erc_report_template.mustache
+
+drc_report_template_path: .github/report_templates/drc_report_template.mustache
+
+readme_template_path: .github/report_templates/readme.mustache
+
+# allow the readme to be auto updated using the readme template
+dynamic_read_me: true
